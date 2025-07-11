@@ -78,16 +78,13 @@ st.set_page_config(page_title="DeTEK PRO Lite", layout="centered")
 # --- --------------LOGO ---
 st.markdown(
     """
-    <div style="position: absolute; top: 40px; right: 10px;">
-        <img src="https://i0.wp.com/tekpro.com.co/wp-content/uploads/2023/12/cropped-logo-tekpro-main-retina.png?fit=522%2C145&ssl=1" width="260">
+    <div style="display: flex; flex-direction: column; align-items: center; margin-top: 18px; margin-bottom: 10px;">
+        <img src='https://i0.wp.com/tekpro.com.co/wp-content/uploads/2023/12/cropped-logo-tekpro-main-retina.png?fit=522%2C145&ssl=1' style='max-width: 90vw; width: 180px; height: auto; margin-bottom: 0;'>
+        <div style='font-family: Georgia, serif; font-size: 8vw; color: #009999; font-weight: bold; margin-top: 0; margin-bottom: 0; text-align:center;'>Tekpro</div>
     </div>
-    """,
-    unsafe_allow_html=True
-)
-st.markdown(
-    """
-    <div style="display: flex; flex-direction: column; align-items: center; margin-top: 10px; margin-bottom: 10px;">
-        <img src='https://i0.wp.com/tekpro.com.co/wp-content/uploads/2023/12/cropped-logo-tekpro-main-retina.png?fit=522%2C145&ssl=1' style='max-width: 90vw; width: 220px; height: auto; margin-bottom: 8px;'>
+    <div style='text-align:center; margin-top: 0;'>
+        <span style='font-family: Georgia, serif; font-size: 6vw; color: #00BDAD; font-weight: bold;'>DeTEK PRO</span><br>
+        <span style='font-family: Georgia, serif; font-size: 5vw; color: #222; font-weight: bold;'>Company</span>
     </div>
     """,
     unsafe_allow_html=True
@@ -188,24 +185,6 @@ with st.sidebar.expander("💬 Chat en línea entre usuarios de la empresa", exp
             # st.experimental_rerun() eliminado para evitar recarga global
 
 # --- SELECCIÓN DE EQUIPO ---
-st.markdown(
-    """
-     <h1 style='font-family: Georgia; font-size: 40px; margin-bottom: 0;'>
-        <span style='color: #00BDAD;'>DeTEK PRO</span>
-        <span style='color: #000; font-size: 24px;'> Lite</span>
-     </h1>
-    """,
-    unsafe_allow_html=True
-)
-st.markdown(
-    """
-    <h1 style='font-family: Georgia; font-size: 7vw; margin-bottom: 0; text-align:center;'>
-        <span style='color: #00BDAD;'>DeTEK PRO</span>
-        <span style='color: #000; font-size: 4vw;'> Lite</span>
-    </h1>
-    """,
-    unsafe_allow_html=True
-)
 st.markdown(f"**Empresa :** `{empresa_seleccionada}`")
 st.markdown("<hr style='margin-top:10px;margin-bottom:10px;border:1px solid #e0e0e0;'>", unsafe_allow_html=True)
 
@@ -224,7 +203,7 @@ descripcion = equipos_empresa[codigo]["descripcion"]
 consumibles_equipo = equipos_empresa[codigo]["consumibles"]
 
 # --- HORARIO DE OPERACIÓN ---
-st.subheader("⏱️ Horario del turno")
+st.subheader(" Horario del turno")
 col1, col2 = st.columns(2)
 with col1:
     hora_inicio = st.time_input("Hora de inicio", value=datetime.strptime("07:00", "%H:%M").time())
@@ -238,7 +217,7 @@ if fin_dt < inicio_dt:
 horas_trabajadas = round((fin_dt - inicio_dt).total_seconds() / 3600, 2)
 
 # --- OBSERVACIONES ---
-st.subheader("📝 Observaciones")
+st.subheader(" Observaciones")
 observaciones = st.text_area("Ingrese observaciones del día:")
 
 # --- GUARDAR DATOS ---
