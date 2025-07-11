@@ -185,17 +185,18 @@ for codigo, detalles in equipos_empresa.items():
             else:
                 estado_partes[parte] += horas
 
-
+    # Determinar el estado más crítico entre los consumibles
+    icono_equipo = "🟢"
     for parte, usadas in estado_partes.items():
         limite = VIDA_UTIL.get(parte, VIDA_UTIL_DEFECTO)
         restantes = limite - usadas
-        if restantes <= 24:
-            estado_icono = "⚠️"
+        if restantes <= 0.5:
+            icono_equipo = "⚠️"
             break
-        elif restantes <= 192 and estado_icono != "⚠️":
-            estado_icono = "🔴"
+        elif restantes <= 24 and icono_equipo != "⚠️":
+            icono_equipo = "🔴"
 
-    visible = f"{estado_icono} {codigo} - {descripcion}"
+    visible = f"{icono_equipo} {codigo} - {descripcion}"
     selector_visible.append(visible)
     estado_equipos[visible] = codigo
 
