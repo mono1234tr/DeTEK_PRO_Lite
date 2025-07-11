@@ -84,6 +84,14 @@ st.markdown(
     """,
     unsafe_allow_html=True
 )
+st.markdown(
+    """
+    <div style="display: flex; flex-direction: column; align-items: center; margin-top: 10px; margin-bottom: 10px;">
+        <img src='https://i0.wp.com/tekpro.com.co/wp-content/uploads/2023/12/cropped-logo-tekpro-main-retina.png?fit=522%2C145&ssl=1' style='max-width: 90vw; width: 220px; height: auto; margin-bottom: 8px;'>
+    </div>
+    """,
+    unsafe_allow_html=True
+)
 st.sidebar.title("Menú de empresa")
 
 empresas_disponibles = list(EQUIPOS_EMPRESA.keys())
@@ -189,8 +197,17 @@ st.markdown(
     """,
     unsafe_allow_html=True
 )
+st.markdown(
+    """
+    <h1 style='font-family: Georgia; font-size: 7vw; margin-bottom: 0; text-align:center;'>
+        <span style='color: #00BDAD;'>DeTEK PRO</span>
+        <span style='color: #000; font-size: 4vw;'> Lite</span>
+    </h1>
+    """,
+    unsafe_allow_html=True
+)
 st.markdown(f"**Empresa :** `{empresa_seleccionada}`")
-st.markdown("---")
+st.markdown("<hr style='margin-top:10px;margin-bottom:10px;border:1px solid #e0e0e0;'>", unsafe_allow_html=True)
 
 if not selector_visible:
     st.warning("⚠️ Esta empresa aún no tiene equipos registrados. Agrega uno desde la barra lateral.")
